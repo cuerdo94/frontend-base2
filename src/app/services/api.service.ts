@@ -10,11 +10,18 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  /**
-   * obtenerPaginacionProducto
-   */
-  public obtenerPaginacionProducto(): Observable<any> {
-    return this.http.get<any>(this.urlBase + "productos")
+  public obtenerPaginacionProducto(pageNumber: number, pageSize: number): Observable<any> {
+    const url = `${this.urlBase}productos?numeroPagina=${pageNumber}&cantidadItems=${pageSize}`;
+    return this.http.get<any>(url)
+  }
 
+  public obtenerDetalleProducto(productoId: number) {
+    const url = `${this.urlBase}productos/${productoId}`;
+    return this.http.get<any>(url)
+  }
+
+  public eliminar(productoId: number) {
+    const url = `${this.urlBase}productos/${productoId}`;
+    return this.http.delete<any>(url)
   }
 }

@@ -1,0 +1,61 @@
+<div class="container mt-5" *ngIf="producto">
+  <div class="card">
+    <div class="card-header">{{producto.nombre}}</div>
+    <div class="card-body">
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <button class="nav-link active" id="nav-descripcion-tab" data-bs-toggle="tab"
+            data-bs-target="#nav-descripcion" type="button" role="tab" aria-controls="nav-descripcion"
+            aria-selected="true">Descripción</button>
+          <button class="nav-link" id="nav-medidas-tab" data-bs-toggle="tab" data-bs-target="#nav-medidas" type="button"
+            role="tab" aria-controls="nav-medidas" aria-selected="false">Medidas</button>
+          <button class="nav-link" id="nav-codigos-tab" data-bs-toggle="tab" data-bs-target="#nav-codigos" type="button"
+            role="tab" aria-controls="nav-codigos" aria-selected="false">Codigos</button>
+
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-descripcion" role="tabpanel"
+          aria-labelledby="nav-descripcion-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body">{{producto.descripcion}} </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-medidas" role="tabpanel" aria-labelledby="nav-medidas-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Alto {{producto.alto}} {{producto.tipoMedida}}</li>
+                <li class="list-group-item">Ancho {{producto.ancho}} {{producto.tipoMedida}}</li>
+                <li class="list-group-item">Largo {{producto.largo}} {{producto.tipoMedida}}</li>
+                <li class="list-group-item">Profundidad {{producto.profundidad}} {{producto.tipoMedida}}</li>
+                <li class="list-group-item">Volumen {{producto.volumenMts3}} Mt<sup>3</sup></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" id="nav-codigos" role="tabpanel" aria-labelledby="nav-codigos-tab" tabindex="0">
+          <div class="card">
+            <div class="card-body">
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Código {{producto.codigoBarra}}</li>
+                <li class="list-group-item">SKU {{producto.sku}} </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-danger" (click)="onVolver()" type="button">Volver</button>
+        <button class="btn btn-primary me-md-2" (click)="onEliminar(producto.id)" type="button">Eliminar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="container-fluid text-center" *ngIf="!producto">
+  <h2>Cargando detalle</h2>
+</div>
