@@ -39,7 +39,7 @@
           <div class="card">
             <div class="card-body">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Código {{producto.codigoBarra}}</li>
+                <li class="list-group-item">Código de barra {{producto.codigoBarra}}</li>
                 <li class="list-group-item">SKU {{producto.sku}} </li>
               </ul>
             </div>
@@ -49,8 +49,8 @@
     </div>
     <div class="card-footer">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-danger" (click)="onVolver()" type="button">Volver</button>
-        <button class="btn btn-primary me-md-2" (click)="onEliminar(producto.id)" type="button">Eliminar</button>
+        <button class="btn btn-primary" (click)="onVolver()" type="button">Volver</button>
+        <button class="btn btn-danger me-md-2" (click)="onEliminar(producto.id)" type="button">Eliminar</button>
       </div>
 
     </div>

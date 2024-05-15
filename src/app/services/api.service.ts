@@ -22,6 +22,6 @@ export class ApiService {
 
   public eliminar(productoId: number) {
     const url = `${this.urlBase}productos/${productoId}`;
-    return this.http.delete<any>(url)
+    return this.http.delete(url)
   }
 }
